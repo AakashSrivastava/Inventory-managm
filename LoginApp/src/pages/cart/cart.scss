@@ -1,0 +1,30 @@
+
+    .ios, .md {
+ 
+        page-cart {
+       
+          ion-item {
+            background-color: #32db64;
+            border-bottom: none !important;
+          }
+       
+          ion-label {
+            white-space: normal;
+          }
+       
+          ion-item-sliding {
+            margin: 10px;
+          }
+          
+          $colors: (
+  primary:    #8db5fa,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+       
+        }
+       
+      }
+

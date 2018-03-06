@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="text-align: center;">Your Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-list>
+    <ion-item-sliding #slidingItem (ionSwipe)="delete(item)" *ngFor="let item of saman">
+      <ion-item>
+        Name: {{item.itemName}}
+        Special Price: {{item.discountedPrice}}
+      </ion-item>
+      <ion-item-options>
+        <button ion-button expandable (click)="delete(item,slidingItem)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding> -->
+
+  <ion-list>
+
+    <button ion-item full *ngFor="let item of saman" (click)="deleteItem(item)">
+      Name: {{item.itemName}}
+      <p>Special Price: {{item.discountedPrice}}</p>
+      <p>MRP: {{item.price}}</p>
+      <p>Qty: {{item.quantity}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <button ion-button full *ngIf="saman.length != 0" outline>Total: {{TotalAmount}}</button>
+      <button ion-button full *ngIf="saman.length != 0" (click)="Buy()" ><ion-icon name="cash"> Pay Now </ion-icon>
+      </button>
+  </ion-toolbar>
+</ion-footer>

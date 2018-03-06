@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center;"> Home </ion-title>
+    <!-- <ion-icon name="home"></ion-icon>
+      Home</ion-title> -->
+    <ion-buttons end>
+      <!-- <button ion-button icon-only (click)="scanBarcode()">
+            <ion-icon name="qr-scanner"></ion-icon>
+          </button> -->
+      <!-- <button ion-button icon-only (click)="wishListPage()">
+            <ion-icon name="heart"></ion-icon>
+          </button> -->
+      <button ion-button icon-only (click)="openCartPage()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <ion-searchbar (ionInput)="getItems()"></ion-searchbar> -->
+  <!-- <div *ngIf="results">
+    <ion-card>
+      <ion-card-content>
+        <p>{{results.text}}</p>
+        <p>{{results.format}}</p> 
+        <p>{{results.cancelled}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div> -->
+
+  <!-- <ion-input [(ngModel)]="newPara" type="text"></ion-input> -->
+
+  <ion-buttons>
+    <button ion-button full icon-only color="light" (click)="scanBarcode()">
+      <ion-icon name="qr-scanner"></ion-icon> Scan
+    </button>
+    <!-- <ion-input [(ngModel)]="quantity" *ngIf="results" type="text" placeholder="Qty."></ion-input> -->
+    <button ion-button full *ngIf="results" icon-only color="light" (click)="setData(results.text)">
+      View item
+    </button>
+  </ion-buttons>
+  <div *ngIf="temp">
+    <ion-card>
+
+      <p>Name: {{temp.itemName}}</p>
+      <p> Discounted Price: {{temp.discountedPrice}}</p>
+      <p>Price: {{temp.price}}</p>
+      <p>Quantity Remaining: {{temp.quantity}}</p>
+
+    </ion-card>
+    <button ion-button full icon-only color="light" (click)="AddData(temp)" (click)="getItem()">
+      Add item
+    </button>
+  </div>
+
+  <!--<button ion-button full color="light" (click) = "getData()">Get Data</button>
+      <div > 
+        <ion-item>
+          <p>{{saman}}</p>
+        </ion-item>
+
+      </div> -->
+  <!-- <ion-card (tap)="tapEvent($event)">
+        <ion-item>
+          Tapped: {{tap}} times
+        </ion-item>
+      </ion-card> -->
+
+  <!--<button ion-button full (click)="encodeData()">Encode</button>-->
+  <!-- <button ion-button full color="light" (click)="openCartPage()">View Cart</button> -->
+</ion-content>
+
+<!-- <ion-footer>
+    <ion-toolbar>
+        <button ion-button full icon-only color="light" (click)="scanBarcode()">
+            <ion-icon name="qr-scanner"></ion-icon> Scan
+          </button>
+    </ion-toolbar>
+  </ion-footer> -->
